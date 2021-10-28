@@ -45,10 +45,12 @@ endef
 
 .PHONY: update
 
-# ##@ Update
-# update: ## Updates the makefile
-# 	$(call info_colors,yellow,🆙 Updating Makefile)
-# 	@curl -sL https://raw.githubusercontent.com/julien-maurel/pre-commit-hooks/master/install.sh | bash
+##@ Update
+update: ## Updates the makefile, precommits and others
+	$(call info_colors,yellow,🆙 Updating Makefile, precommit and other tools)
+	@curl -sL https://raw.githubusercontent.com/StanGirard/test-makefile/main/Makefile > Makefile
+	@curl -sL https://raw.githubusercontent.com/StanGirard/test-makefile/main/prettier.mk > prettier.mk
+	@curl -sL https://raw.githubusercontent.com/StanGirard/test-makefile/main/.pre-commit-config.yaml > .pre-commit-config.yaml
 
 .PHONY: help
 ##@ Help
