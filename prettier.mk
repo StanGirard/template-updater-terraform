@@ -47,10 +47,14 @@ endef
 
 ##@ Update
 update: ## Updates the makefile, precommits and others
-	$(call info_colors,yellow,🆙 Updating Makefile, precommit and other tools)
-	@curl -sL https://raw.githubusercontent.com/StanGirard/test-makefile/main/Makefile > Makefile
-	@curl -sL https://raw.githubusercontent.com/StanGirard/test-makefile/main/prettier.mk > prettier.mk
-	@curl -sL https://raw.githubusercontent.com/StanGirard/test-makefile/main/.pre-commit-config.yaml > .pre-commit-config.yaml
+	$(info Updating Makefile)
+	@curl -sL https://raw.githubusercontent.com/StanGirard/template-updater-terraform/main/Makefile > Makefile
+	@curl -sL https://raw.githubusercontent.com/StanGirard/template-updater-terraform/main/prettier.mk > prettier.mk
+	@curl -sL https://raw.githubusercontent.com/StanGirard/template-updater-terraform/main/.pre-commit-config.yaml > .pre-commit-config.yaml
+	@test -f package.json || curl -sL https://raw.githubusercontent.com/StanGirard/template-updater-terraform/main/package.json > package.json
+	@curl -sl https://raw.githubusercontent.com/StanGirard/template-updater-terraform/main/.terraform-docs.yml > .terraform-docs.yml
+	@curl -sL https://raw.githubusercontent.com/StanGirard/template-updater-terraform/main/.editorconfig > .editorconfig
+
 
 .PHONY: help
 ##@ Help

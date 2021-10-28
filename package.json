@@ -1,0 +1,8 @@
+{
+    "description": "Terraform Module",
+    "scripts": {
+        "version": "standard-version",
+        "dry-run": "standard-version --dry-run"
+    },
+    "version": "0.0.0"
+}
